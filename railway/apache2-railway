@@ -1,0 +1,8 @@
+#!/bin/bash
+# Runs after the official entrypoint finished install/migrate (its name starts with
+# "apache2" so the entrypoint treats it as the web server command).
+# The entrypoint's own chown doesn't follow our symlinks, so fix ownership on the volume.
+set -e
+STORAGE="${ESPOCRM_STORAGE_DIR:-/espocrm-storage}"
+chown -R www-data:www-data "$STORAGE/data" "$STORAGE/custom" "$STORAGE/client-custom"
+exec apache2-foreground "$@"

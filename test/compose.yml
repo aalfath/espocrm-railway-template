@@ -1,0 +1,30 @@
+# Local test of the Railway layout: `docker compose -f test/compose.yml up --build`
+services:
+  mysql:
+    image: mysql:9.4
+    environment:
+      MYSQL_ROOT_PASSWORD: localtest-root
+      MYSQL_DATABASE: railway
+    volumes: [mysql:/var/lib/mysql]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-plocaltest-root"]
+      interval: 5s
+      retries: 30
+  espocrm:
+    build: ..
+    environment:
+      PORT: "8080"
+      ESPOCRM_DATABASE_HOST: mysql
+      ESPOCRM_DATABASE_PORT: "3306"
+      ESPOCRM_DATABASE_NAME: railway
+      ESPOCRM_DATABASE_USER: root
+      ESPOCRM_DATABASE_PASSWORD: localtest-root
+      ESPOCRM_ADMIN_PASSWORD: localtest-admin
+      ESPOCRM_SITE_URL: http://localhost:8080
+    volumes: [espocrm:/espocrm-storage]
+    ports: ["8080:8080"]
+    depends_on:
+      mysql: {condition: service_healthy}
+volumes:
+  mysql:
+  espocrm:
