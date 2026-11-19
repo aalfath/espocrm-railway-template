@@ -28,6 +28,10 @@ link_dir "$APP/custom" "$STORAGE/custom"
 link_dir "$APP/client/custom" "$STORAGE/client-custom"
 
 # --- Apache on $PORT --------------------------------------------------------
+# Railway's image build can bring back mpm_event links that the base image
+# removed, and Apache then stops with "More than one MPM loaded". Keep prefork only.
+rm -f /etc/apache2/mods-enabled/mpm_event.* /etc/apache2/mods-enabled/mpm_worker.*
+[ -e /etc/apache2/mods-enabled/mpm_prefork.load ] || a2enmod -q mpm_prefork >/dev/null
 sed -ri "s/^Listen [0-9]+$/Listen ${PORT}/" /etc/apache2/ports.conf
 sed -ri "s/<VirtualHost \*:[0-9]+>/<VirtualHost *:${PORT}>/" /etc/apache2/sites-available/000-default.conf
 
