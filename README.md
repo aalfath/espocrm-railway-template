@@ -2,7 +2,7 @@
 
 # Deploy and Host EspoCRM on Railway
 
-EspoCRM is an open-source CRM (AGPL-3.0) for managing accounts, contacts, leads, opportunities, cases, emails, calendars and workflows. It has a fast single-page web interface, a REST API, roles and team permissions, and an Entity Manager for adding your own fields, entities and layouts without code.
+EspoCRM is an open-source CRM (AGPL-3.0) for managing accounts, contacts, leads, opportunities, cases, emails, calendars and workflows. It has a single-page web interface, a REST API, roles and team permissions, and an Entity Manager for adding your own fields, entities and layouts without code.
 
 ## About Hosting EspoCRM
 
