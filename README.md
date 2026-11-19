@@ -48,7 +48,7 @@ Running EspoCRM properly takes more than the web app. Upstream's Docker setup ha
 |---|---|---|
 | `ESPOCRM_ADMIN_USERNAME` | `admin` | Username of the first admin, used on first boot only |
 | `ESPOCRM_ADMIN_PASSWORD` | generated | Password of the first admin, used on first boot only. Change it in EspoCRM afterwards |
-| `ESPOCRM_SITE_URL` | `https://${{RAILWAY_PUBLIC_DOMAIN}}` | Set to `https://YOUR-DOMAIN` when you add a custom domain; links and WebSockets follow it on the next deploy |
+| `ESPOCRM_SITE_URL` | your Railway domain | Set to `https://YOUR-DOMAIN` when you add a custom domain; links and WebSockets follow it on the next deploy |
 | `ESPOCRM_DATABASE_*` | references to the MySQL service | Leave as they are |
 | `PORT` | `8080` | Port Apache listens on |
 
