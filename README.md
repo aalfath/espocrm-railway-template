@@ -16,7 +16,7 @@ Running EspoCRM properly takes more than the web app. Upstream's Docker setup ha
 
 ## Dependencies for EspoCRM Hosting
 
-* EspoCRM 10.1.3 (official `espocrm/espocrm` Apache image, pinned by digest), running the web app, job daemon and WebSocket server
+* EspoCRM 10.1.4 (official `espocrm/espocrm` Apache image, pinned by digest), running the web app, job daemon and WebSocket server
 * MySQL (Railway's MySQL service) on its own volume
 
 ### Deployment Dependencies
