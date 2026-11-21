@@ -1,6 +1,6 @@
 # EspoCRM for Railway: web app (Apache), job daemon and WebSocket server in one service.
 # They must share data/ and custom/, and a Railway volume belongs to one service only.
-FROM espocrm/espocrm:10.1.3-apache@sha256:1d6f5eab228e163f63e9195370b6c4dc1b9f6b7cc508521507a22eca42fd8d22
+FROM espocrm/espocrm:10.1.4-apache@sha256:5f8fa9a708893b9fbfe55a778f24c952a6a73b94c97fb126eccd21aa936c878c
 
 # Keep a copy of the image's writable folders so start.sh can seed an empty volume
 # (and add new default files after an update without overwriting yours).
